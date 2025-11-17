@@ -6,7 +6,7 @@
 /*   By: ywang2 <ywang2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:43:49 by ywang2            #+#    #+#             */
-/*   Updated: 2025/11/17 16:12:30 by ywang2           ###   ########.fr       */
+/*   Updated: 2025/11/17 16:26:32 by ywang2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_print_format(va_list args, const char format)
 	else if (format == 'x' || format == 'X')
 		total += ft_print_hex(va_arg(args, int), format);
 	else if (format == '%')
-		otal += ft_print_char('%');
+		total += ft_print_char('%');
 	return (total);
 }
 
