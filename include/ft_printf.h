@@ -6,7 +6,7 @@
 /*   By: ywang2 <ywang2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:41:54 by ywang2            #+#    #+#             */
-/*   Updated: 2025/11/17 16:14:06 by ywang2           ###   ########.fr       */
+/*   Updated: 2025/11/25 13:48:15 by ywang2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	ft_print_char(char c);
 int	ft_print_str(char *s);
 int	ft_print_nbr(long nb);
 int	ft_print_hex(unsigned int nb, char format);
+
 int	ft_put_ptr(unsigned long long ads);
 int	ft_print_ptr(unsigned long long ads);
 int	ft_print_format(va_list args, const char format);

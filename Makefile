@@ -6,7 +6,7 @@
 #    By: ywang2 <ywang2@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/17 15:42:06 by ywang2            #+#    #+#              #
-#    Updated: 2025/11/17 15:52:38 by ywang2           ###   ########.fr        #
+#    Updated: 2025/11/25 10:38:13 by ywang2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = libftprintf.a
 
 INCLUDES = -I ./include
 
-SRCS_DIR = ./srcs/
+SRCS_DIR = ./src/
 
 CFLAGS = -Wall -Wextra -Werror
 

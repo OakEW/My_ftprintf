@@ -6,7 +6,7 @@
 /*   By: ywang2 <ywang2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:43:49 by ywang2            #+#    #+#             */
-/*   Updated: 2025/11/17 16:26:32 by ywang2           ###   ########.fr       */
+/*   Updated: 2025/11/30 15:43:11 by ywang2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ int	ft_print_ptr(unsigned long long ads)
 	int	len;
 
 	len = 2;
+	if (!ads)
+	{
+		write (1, "(nil)", 5);
+		return (5);
+	}
 	write (1, "0x", 2);
 	len += ft_put_ptr(ads);
 	return (len);
@@ -62,6 +67,11 @@ int	ft_print_format(va_list args, const char format)
 		total += ft_print_hex(va_arg(args, int), format);
 	else if (format == '%')
 		total += ft_print_char('%');
+	else
+	{
+		total += ft_print_char('%');
+		total += ft_print_char(format);
+	}
 	return (total);
 }
 
@@ -71,10 +81,14 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 
 	total = 0;
+	if (str == NULL)
+		return (-1);
 	va_start(args, str);
 	while (*str)
 	{
-		if (*str == '%')
+		if (*str == '%' && *(str + 1) == 0)
+			return (-1);
+		else if (*str == '%')
 		{
 			str++;
 			total += ft_print_format(args, *str);
@@ -86,17 +100,12 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (total);
 }
-/*#include<stdio.h>
-int main(void)
-{
-	//char *m = NULL;
+// #include <stdio.h>
+// #include "./include/ft_printf.h"
 
-    //ft_printf(" return ft_ = %d\n", ft_printf(" %%"));
-	printf("return Std = %zd\n", write (1, "\001\002\007\v\010\f\r\nv",9));
-	//ft_printf(" return Std = %d\n", ft_printf("%%%c", 'x'));
-	//printf("%lx\n", ads);
-	//ft_printf("%X\n", 16);
-	//ft_printf("return ft_ = %d\n", ft_printf("%X", -15123));
-	//printf(" return v =%d\n", printf("%u",  -4534543121231));
-    //printf("%s", m); // if char * is NULL, actually print "(null)" , 6 bytes
-}*/
+// int	main(void)
+// {
+// 	printf (":_std_return = %d\n", printf ("%%%%%"));
+// 	printf ("--------\n");
+// 	printf (":__ft_return = %d\n", ft_printf ("%%%%%"));
+// }
